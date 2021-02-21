@@ -17,11 +17,11 @@ public class timeMinggu {
         this.inputValue = Double.valueOf(inputNumber);
     }
      public double mingguToTahun () {
-        result = inputValue * 52;
+        result = inputValue / 52;
         return result;
     }
-    public double mingguToBulan () {
-        result = inputValue * 4;
+    public double mingguToBulanM () {
+        result = inputValue / 4;
         return result;
     }
     public double mingguToHari () {
@@ -34,11 +34,11 @@ public class timeMinggu {
     }
      //rumus belum bener
     public double mingguToMenit () {
-        result = inputValue * 168;
+        result = inputValue * 10080;
         return result;
     }
     public double mingguToDetik () {
-        result = inputValue * 168;
+        result = inputValue * 6004800;
         return result;
     }
 }

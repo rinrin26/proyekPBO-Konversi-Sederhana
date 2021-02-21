@@ -5,6 +5,11 @@
  */
 package design;
 
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import logic.timeBulan;
 import logic.timeDetik;
 import logic.timeHari;
@@ -20,57 +25,64 @@ import logic.timeTahun;
 public class time extends javax.swing.JInternalFrame {
 
     /**
-     *  @author rinrin karmila
+     * @author rinrin karmila
      */
- String number;
- double hari,detik,menit,jam,bulan,tahun,minggu;
- String outputHari,outputDetik,outputMenit,outputJam,outputBulan,outputMinggu,outputTahun;
+    String number;
+    double hari, detik, menit, jam, bulan, tahun, minggu;
+    String outputHari, outputDetik, outputMenit, outputJam, outputBulan, outputMinggu, outputTahun;
 
     public time() {
-         super("Kalkulator Konversi sederhana");
-        
-        initComponents();
-        number="";
-    }
-    
+        super("Kalkulator Konversi sederhana");
 
-    public void getNumber(javax.swing.JButton button){
+        initComponents();
+        number = "";
+    }
+
+    public void getNumber(javax.swing.JButton button) {
         number += button.getText(); //Mengambil nilai dari button dan diubah ke tipe string dan ditampung divariabel number
         txtInput.setText(number); //Merubah nilai data ke string agar dapat ditampilkan di hasil 
     }
-    void konversiHari () {
+
+    void konversiHari() {
         timeHari convertHari = new timeHari();
         convertHari.setInput(number);
         String getValue = txtInput.getText();
         hari = Double.parseDouble(getValue);
-        jam = convertHari.HariToJam();//celcius*0.8+32;
-        menit = convertHari.HariToMenit() ;
+        jam = convertHari.HariToJam();
+        menit = convertHari.HariToMenit();
         detik = convertHari.HariToDetik();
-        minggu = convertHari.HariToMinggu();
-        bulan=convertHari.HariToBulan();
-        tahun= convertHari.HariToTahun();
+        bulan = convertHari.HariToMinggu1();
+        minggu = convertHari.HariToBulan();
+        tahun = convertHari.HariToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
+
         //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
@@ -79,42 +91,50 @@ public class time extends javax.swing.JInternalFrame {
         txtBulan.setEditable(false);
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
-        
+
     }
-    void konversiMenit () {
+
+    void konversiMenit() {
         timeMenit convertMenit = new timeMenit();
         convertMenit.setInput(number);
         String getValue = txtInput.getText();
         hari = convertMenit.menitToHari();
-        jam = convertMenit.menitToJam();//celcius*0.8+32;
-        menit =  Double.parseDouble(getValue);//celcius*0.8;
+        jam = convertMenit.menitToJam();
+        menit = Double.parseDouble(getValue);
         detik = convertMenit.menitToDetik();
         minggu = convertMenit.menitToMinggu();
-        bulan= convertMenit.menitToBulan();
-        tahun= convertMenit.menitToTahun();
+        bulan = convertMenit.menitToBulan();
+        tahun = convertMenit.menitToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -123,40 +143,48 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
-    void konversiDetik () {
+
+    void konversiDetik() {
         timeDetik convertDetik = new timeDetik();
         convertDetik.setInput(number);
-         String getValue = txtInput.getText();
+        String getValue = txtInput.getText();
         hari = convertDetik.DetikToHari();
         jam = convertDetik.DetikToJam();
-        menit =  convertDetik.DetikToMenit();
+        menit = convertDetik.DetikToMenit();
         detik = Double.parseDouble(getValue);
         minggu = convertDetik.DetikToMinggu();
-        bulan= convertDetik.DetikToBulan();
-        tahun=convertDetik.DetikToTahun();
+        bulan = convertDetik.DetikToBulan();
+        tahun = convertDetik.DetikToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -165,40 +193,48 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
-    void konversiJam () {
+
+    void konversiJam() {
         timeJam convertJam = new timeJam();
         convertJam.setInput(number);
-         String getValue = txtInput.getText();
+        String getValue = txtInput.getText();
         hari = convertJam.JamToHari();
         jam = Double.parseDouble(getValue);
-        menit =  convertJam.JamToMenit();
+        menit = convertJam.JamToMenit();
         detik = convertJam.JamToDetik();
         minggu = convertJam.JamToMinggu();
-        bulan= convertJam.JamToBulan();
-        tahun=convertJam.JamToTahun();
+        bulan = convertJam.JamToBulan();
+        tahun = convertJam.JamToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -207,40 +243,48 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
-    void konversiTahun (){
+
+    void konversiTahun() {
         timeTahun convertTahun = new timeTahun();
         convertTahun.setInput(number);
-     String getValue = txtInput.getText();
+        String getValue = txtInput.getText();
         hari = convertTahun.tahunToHari();
         jam = convertTahun.tahunToJam();
         menit = convertTahun.tahunToMenit();
         detik = convertTahun.tahunToDetik();
-        minggu =convertTahun.tahunTominggu();
-        bulan=convertTahun.tahunToBulan();
-        tahun=Double.parseDouble(getValue);
+        bulan = convertTahun.tahunTominggu();
+        minggu = convertTahun.tahunToBulan();
+        tahun = Double.parseDouble(getValue);
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -249,40 +293,48 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
-    void konversiBulan () {
+
+    void konversiBulan() {
         timeBulan convertBulan = new timeBulan();
         convertBulan.setInput(number);
-       String getValue = txtInput.getText();
+        String getValue = txtInput.getText();
         hari = convertBulan.bulanToHari();
         jam = convertBulan.bulanToJam();
-        menit =  convertBulan.bulanToMenit() ;//celcius*0.8;
+        menit = convertBulan.bulanToMenit();//celcius*0.8;
         detik = convertBulan.bulanToDetik();
-        minggu = convertBulan.bulanToMinggu();
-        bulan=Double.parseDouble(getValue);
-        tahun=convertBulan.bulanToTahun();
+        minggu = convertBulan.bulanToMingguBln();
+        bulan = Double.parseDouble(getValue);
+        tahun = convertBulan.bulanToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+//      
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
-        //=========== result menit =================
+//     
+//=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+//       
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+
+//     
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -291,40 +343,50 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
-    void konversiMinggu () {
+
+    void konversiMinggu() {
         timeMinggu convertMinggu = new timeMinggu();
         convertMinggu.setInput(number);
-       String getValue = txtInput.getText();
+        String getValue1 = txtInput.getText();
         hari = convertMinggu.mingguToHari();
         jam = convertMinggu.mingguToJam();
-        menit = convertMinggu.mingguToMenit() ;
+        menit = convertMinggu.mingguToMenit();
         detik = convertMinggu.mingguToDetik();
-        minggu =Double.parseDouble(getValue);;
-        bulan=convertMinggu.mingguToBulan();
-        tahun=convertMinggu.mingguToTahun();
+        minggu = Double.parseDouble(getValue1);
+        bulan = convertMinggu.mingguToBulanM();
+        tahun = convertMinggu.mingguToTahun();
 
-         //=========== result hari =================
-        outputHari= Double.toString(hari);
+        //=========== result hari =================
+        outputHari = Double.toString(hari);
         txtHari.setText(outputHari);
-         //=========== result jam =================
-        outputJam= Double.toString(jam);
+//        txtHari.getText().substring(0, 10);
+        //=========== result jam =================
+        outputJam = Double.toString(jam);
         txtJam.setText(outputJam);
+//        txtJam.getText().substring(0, 10);
+
         //=========== result menit =================
         outputMenit = Double.toString(menit);
         txtMenit.setText(outputMenit);
+//        txtMenit.getText().substring(0, 10);
         //=========== result detik =================
         outputDetik = Double.toString(detik);
         txtSecond.setText(outputDetik);
+//         txtSecond.getText().substring(0, 10);
         //=========== result tahun =================
         outputTahun = Double.toString(tahun);
         txtTahun.setText(outputTahun);
+//       txtTahun.getText().substring(0, 10);
         //=========== result bulan =================
         outputBulan = Double.toString(bulan);
         txtBulan.setText(outputBulan);
+//         txtBulan.getText().substring(0, 10);
         //=========== result minggu =================
-        outputMinggu = Double.toString(bulan);
+        outputMinggu = Double.toString(minggu);
         txtMinggu.setText(outputMinggu);
-         //============readonly===========
+
+//        txtMinggu.getText().substring(0, 10);
+        //============readonly===========
         txtHari.setEditable(false);
         txtJam.setEditable(false);
         txtMenit.setEditable(false);
@@ -333,6 +395,29 @@ public class time extends javax.swing.JInternalFrame {
         txtTahun.setEditable(false);
         txtMinggu.setEditable(false);
     }
+
+    void textFieldKeyTyped(java.awt.event.KeyEvent evt) {
+        if (txtTahun.getText().length() == 15) {
+            evt.consume();
+        }
+    }
+
+    void displayInformasi() {
+        Font normalFont = new Font(Font.MONOSPACED, Font.PLAIN, 24);
+        UIManager.put("OptionPane.font", normalFont);
+        UIManager.put("OptionPane.messageFont", normalFont);
+        UIManager.put("OptionPane.minimumSize", new Dimension(400, 300));
+        UIManager.put("OptionPane.buttonFont", normalFont);
+        UIManager.put("OptionPane.buttonOrientation", SwingConstants.RIGHT);
+
+        JOptionPane.showMessageDialog(this,
+                "Time adalah Kalkulator menghitung Konversi waktu \nterdapat pilihan untuk mengkonversi waktu yakni"
+                + "\nDetik, Menit " + "\nJam, Hari,\nMinggu, Bulan,\ndan Tahun\nklik = untuk melihat hasil\nbegitupun sebaliknya."
+                + "\n " + "\ncreated by : Rinrin Karmila",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -596,6 +681,11 @@ public class time extends javax.swing.JInternalFrame {
         jLabel8.setText("Hari");
 
         txtTahun.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTahunActionPerformed(evt);
+            }
+        });
 
         txtBulan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtBulan.addActionListener(new java.awt.event.ActionListener() {
@@ -608,6 +698,11 @@ public class time extends javax.swing.JInternalFrame {
         jLabel9.setText("Bulan");
 
         txtMinggu.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        txtMinggu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMingguActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Minggu");
@@ -709,14 +804,14 @@ public class time extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSecond, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSecond)
                             .addComponent(txtMenit)
                             .addComponent(txtJam)
                             .addComponent(txtHari)
-                            .addComponent(txtBulan)
-                            .addComponent(txtMinggu, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTahun))
+                            .addComponent(txtTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMinggu)
+                            .addComponent(txtBulan))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -726,9 +821,9 @@ public class time extends javax.swing.JInternalFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel1)
                             .addComponent(jLabel10))
-                        .addGap(0, 144, Short.MAX_VALUE))
+                        .addGap(85, 85, 85))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Title)
                         .addGap(247, 247, 247))))
         );
@@ -802,7 +897,7 @@ public class time extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 869, Short.MAX_VALUE))
+                .addGap(0, 882, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -867,21 +962,21 @@ public class time extends javax.swing.JInternalFrame {
             konversiJam();
         } else if (rdMenit.isSelected()) {
             konversiMenit();
-        } else if (rdDetik.isSelected()) {
-            konversiDetik();
         } else if (rdBulan.isSelected()) {
             konversiBulan();
+        } else if (rdDetik.isSelected()) {
+            konversiDetik();
         } else if (rdMinggu.isSelected()) {
             konversiMinggu();
         } else {
             konversiTahun();
         }
-       
+
     }//GEN-LAST:event_BtnEqualActionPerformed
 
     private void BtnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnClearActionPerformed
         //Untuk hapus nilai data
-        number ="";
+        number = "";
         txtInput.setText("0");
         txtHari.setText("0");
         txtJam.setText("0");
@@ -913,9 +1008,18 @@ public class time extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBulanActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        
+        displayInformasi();
 //        JOptionPane.showMessageDialog(null," Program ini dibuat oleh \n Nama: Rinrin Karmila \n");
     }//GEN-LAST:event_btnInfoActionPerformed
+
+    private void txtTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTahunActionPerformed
+        // TODO add your handling code here
+
+    }//GEN-LAST:event_txtTahunActionPerformed
+
+    private void txtMingguActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMingguActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMingguActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

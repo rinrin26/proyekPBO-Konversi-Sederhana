@@ -5,7 +5,12 @@
  */
 package design;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import logic.OperasiKalkulatorStandar;
 
 
@@ -48,6 +53,20 @@ public class standar extends javax.swing.JInternalFrame {
         txtResult.setText(df.format(calculator.getResult()) + "");
         //Menampilkan process perhitungan yang dibuat pada label process
         labelProses.setText(df.format(calculator.angka3) + "" + calculator.cetakProses + "" + (df.format(calculator.angka2) + "=" + (df.format(calculator.result))));
+    }
+    void displayInformasi() {
+        Font normalFont = new Font(Font.MONOSPACED, Font.PLAIN, 24);
+        UIManager.put("OptionPane.font", normalFont);
+        UIManager.put("OptionPane.messageFont", normalFont);
+        UIManager.put("OptionPane.minimumSize", new Dimension(400, 300));
+        UIManager.put("OptionPane.buttonFont", normalFont);
+        UIManager.put("OptionPane.buttonOrientation",  SwingConstants.RIGHT);
+
+        JOptionPane.showMessageDialog(this,
+                "Ini adalah Kalkulator standar" + "\ndimana bisa pengoperasian Aritmatika " + "\nKali (*),\nBagi(:),\nTambah(+),\nKurang(-)"
+                + "\n " + "\ncreated by : Rinrin Karmila",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**
@@ -496,8 +515,7 @@ public class standar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnKaliActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-       
-//        JOptionPane.showMessageDialog(null," Program ini dibuat oleh \n Nama: Rinrin Karmila \n");
+        displayInformasi();
     }//GEN-LAST:event_btnInfoActionPerformed
 
 

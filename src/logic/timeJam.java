@@ -17,7 +17,7 @@ public class timeJam {
         this.inputValue = Double.valueOf(inputNumber);
     }
      public double JamToHari () {
-        result = inputValue * 24;
+        result = inputValue / 24;
         return result;
     }
     public double JamToDetik () {
@@ -30,15 +30,15 @@ public class timeJam {
     }
     //belum bener
     public double JamToMinggu () {
-        result = inputValue * 168;
+        result = inputValue / 168;
         return result;
     }
     public double JamToBulan () {
-        result = inputValue * 720;
+        result = inputValue / 720;
         return result;
     }
     public double JamToTahun () {
-        result = inputValue * 8640;
+        result = inputValue / 8640;
         return result;
     }
     

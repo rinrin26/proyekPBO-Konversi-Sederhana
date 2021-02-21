@@ -19,7 +19,7 @@ public class timeMenit {
     }
 
     public double menitToJam() {
-        result = inputValue * 60;
+        result = inputValue / 60;
         return result;
     }
 
@@ -29,22 +29,22 @@ public class timeMenit {
     }
 
     public double menitToHari() {
-        result = inputValue * 1440;
+        result = inputValue / 1440;
         return result;
     }
 
     public double menitToMinggu() {
-        result = inputValue * 10080;
+        result = inputValue / 10080;
         return result;
     }
 
     public double menitToBulan() {
-        result = inputValue * 40320;
+        result = inputValue / 40320;
         return result;
     }
 
     public double menitToTahun() {
-        result = inputValue * 483840;
+        result = inputValue / 483840;
         return result;
     }
 

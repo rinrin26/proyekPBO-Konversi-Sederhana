@@ -5,6 +5,8 @@
  */
 package logic;
 
+
+
 /**
  *
  * @author rinrin karmila
@@ -18,10 +20,10 @@ public class timeBulan {
         this.inputValue = Double.valueOf(inputNumber);
     }
     public double bulanToTahun() {
-        result = inputValue * 12;
+        result = inputValue / 12;
         return result;
     }
-     public double bulanToMinggu() {
+     public double bulanToMingguBln() {
         result = inputValue * 4;
         return result;
     }
@@ -30,11 +32,11 @@ public class timeBulan {
         return result;
     }
        public double bulanToJam() {
-        result = inputValue * 720;
+        result = inputValue * 720 ;
         return result;
     }
         public double bulanToMenit() {
-        result = inputValue * 40320;
+        result = inputValue * 403200;
         return result;
     } public double bulanToDetik() {
         result = inputValue * 2419200;

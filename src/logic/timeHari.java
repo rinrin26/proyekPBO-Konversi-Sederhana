@@ -30,15 +30,15 @@ public class timeHari {
         return result;
     }
     public double HariToBulan () {
-        result = inputValue * 30;
+        result = inputValue / 30;
         return result;
     }
     public double HariToTahun () {
-        result = inputValue * 365;
+        result = inputValue / 365;
         return result;
     }
-    public double HariToMinggu () {
-        result = inputValue * 7;
+    public double HariToMinggu1 () {
+        result = inputValue / 7;
         return result;
     }
     

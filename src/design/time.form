@@ -25,7 +25,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="btnInfo" min="-2" pref="69" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="869" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="882" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Component id="jPanel4" alignment="0" max="32767" attributes="0"/>
@@ -80,14 +80,14 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtSecond" pref="172" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtSecond" max="32767" attributes="0"/>
                               <Component id="txtMenit" max="32767" attributes="0"/>
                               <Component id="txtJam" max="32767" attributes="0"/>
                               <Component id="txtHari" max="32767" attributes="0"/>
-                              <Component id="txtBulan" max="32767" attributes="0"/>
-                              <Component id="txtMinggu" alignment="1" max="32767" attributes="0"/>
-                              <Component id="txtTahun" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtTahun" min="-2" pref="231" max="-2" attributes="0"/>
+                              <Component id="txtMinggu" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtBulan" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -99,10 +99,10 @@
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="144" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="85" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="Title" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
                       </Group>
@@ -495,6 +495,9 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTahunActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="txtBulan">
           <Properties>
@@ -520,6 +523,9 @@
               <Font name="Tahoma" size="24" style="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMingguActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

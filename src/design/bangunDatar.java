@@ -5,9 +5,13 @@
  */
 package design;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.ImageIcon;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import logic.kelilingBangunDatar;
 import logic.LuasBangunDatar;
 
@@ -151,15 +155,15 @@ public class bangunDatar extends javax.swing.JInternalFrame {
             case 2:
                 //persegi
                 String getValueSisi = String.valueOf(txtInput1.getText());
-                lusBangunDatar.setInput1(getValueSisi);
-                hasil = lusBangunDatar.LuasBangunDatar();
+                k.setInput1(getValueSisi);
+                hasil = k.KelilingPersegiWithKetupat();
                 String resultPersegi = Double.toString(hasil);
                 txtHasil.setText(resultPersegi);
                 break;
             case 3:
                 //belah ketupat
                 String getValueSisi1 = String.valueOf(txtInput1.getText());
-                lusBangunDatar.setInput1(getValueSisi1);
+                k.setInput1(getValueSisi1);
                 hasil = k.KelilingPersegiWithKetupat();
                 String resultKKetupat = Double.toString(hasil);
                 txtHasil.setText(resultKKetupat);
@@ -221,6 +225,21 @@ public class bangunDatar extends javax.swing.JInternalFrame {
             default:
         }
     }
+    void displayInformasi() {
+        Font normalFont = new Font(Font.MONOSPACED, Font.PLAIN, 24);
+        UIManager.put("OptionPane.font", normalFont);
+        UIManager.put("OptionPane.messageFont", normalFont);
+        UIManager.put("OptionPane.minimumSize", new Dimension(400, 300));
+        UIManager.put("OptionPane.buttonFont", normalFont);
+        UIManager.put("OptionPane.buttonOrientation",  SwingConstants.RIGHT);
+
+        JOptionPane.showMessageDialog(this,
+                "L & K adalah kalkulator untuk menghitung\nLuas dan keliling dari sebuah Bangun Datar  \ndiantaranya:" +
+                 "\nPersegi Panjang, Persegi " + "\nBelah Ketupat, Jajar Genjang,\nSegitiga,Travesium,\nLayang-layang dan Lingkaran\nklik keliling =  atau luas = untuk melihat hasil."
+                + "\n " + "\ncreated by : Rinrin Karmila",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
 
     ;
     /**
@@ -252,7 +271,6 @@ public class bangunDatar extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         BtnClear = new javax.swing.JButton();
         btnLuas = new javax.swing.JButton();
-        pictureLabel = new javax.swing.JLabel();
         btnKeliling = new javax.swing.JButton();
         btnInfo = new javax.swing.JButton();
 
@@ -359,8 +377,6 @@ public class bangunDatar extends javax.swing.JInternalFrame {
             }
         });
 
-        pictureLabel.setText("Picture");
-
         btnKeliling.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnKeliling.setText("Keliling =");
         btnKeliling.addActionListener(new java.awt.event.ActionListener() {
@@ -399,50 +415,44 @@ public class bangunDatar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel4)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtHasil, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHasil, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
+                                .addComponent(btnKeliling, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnLuas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtInput3, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                                        .addComponent(txtInput1)
+                                        .addComponent(labelInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(btnKeliling, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnLuas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addComponent(labelInput3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtInput2)
+                                    .addComponent(txtInput4)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtInput3, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                                .addComponent(txtInput1)
-                                                .addComponent(labelInput1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGap(10, 10, 10)
-                                                .addComponent(labelInput3, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtInput2)
-                                            .addComponent(txtInput4)
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(labelInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                                            .addGap(10, 10, 10)
-                                                            .addComponent(labelInput4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                .addGap(0, 9, Short.MAX_VALUE)))))))
-                        .addGap(56, 56, 56))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(pictureLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(btnInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(labelInput2, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                                    .addGap(10, 10, 10)
+                                                    .addComponent(labelInput4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(0, 9, Short.MAX_VALUE)))))))
+                .addGap(56, 56, 56))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(246, 246, 246)
                 .addComponent(Title)
@@ -487,11 +497,11 @@ public class bangunDatar extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(rumus, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jLabel4)
-                        .addContainerGap(65, Short.MAX_VALUE))
+                        .addContainerGap(67, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -502,8 +512,6 @@ public class bangunDatar extends javax.swing.JInternalFrame {
                             .addComponent(BtnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnLuas, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnKeliling, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(80, 80, 80)
-                        .addComponent(pictureLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
@@ -597,7 +605,7 @@ public class bangunDatar extends javax.swing.JInternalFrame {
                     txtInput4.setEnabled(false);
                     rumus.setText(" L = P * L");
                     rumus.setEditable(false);
-                    pictureLabel.setIcon(myIcon);
+                    
                     break;
                 case 2:
                     //persegi
@@ -842,7 +850,7 @@ public class bangunDatar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnKelilingActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-          
+          displayInformasi();
 //        JOptionPane.showMessageDialog(null," Program ini dibuat oleh \n Nama: Rinrin Karmila \n");
     }//GEN-LAST:event_btnInfoActionPerformed
 
@@ -862,7 +870,6 @@ public class bangunDatar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelInput2;
     private javax.swing.JLabel labelInput3;
     private javax.swing.JLabel labelInput4;
-    private javax.swing.JLabel pictureLabel;
     private javax.swing.JTextField rumus;
     private javax.swing.JComboBox<String> selectedKeliling;
     private javax.swing.JComboBox<String> selectedLuas;

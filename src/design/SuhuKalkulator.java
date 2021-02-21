@@ -5,8 +5,11 @@
  */
 package design;
 
-import javax.swing.JFrame;
+import java.awt.Dimension;
+import java.awt.Font;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 import logic.CelciusSuhu;
 import logic.fahreinheit;
 import logic.kelvin;
@@ -15,7 +18,7 @@ import logic.reamur;
 /**
  *
  * @author rinrin karmila
-
+ *
  */
 public class SuhuKalkulator extends javax.swing.JInternalFrame {
 
@@ -54,10 +57,10 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
         reamur = celciusText.toReamur();//celcius*0.8;
         kelvin = celciusText.toKelvin();
 
-         //=========== result celcius =================
+        //=========== result celcius =================
         outputConvertCelcius = Double.toString(celcius);
         resultCelcius.setText(outputConvertCelcius);
-         //=========== result fahreinheit =================
+        //=========== result fahreinheit =================
         outputConvertFahreinheit = Double.toString(fahreinheit);
         resultFahreinheit.setText(outputConvertFahreinheit);
         //=========== result reamur =================
@@ -66,28 +69,28 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
         //=========== result kelvin =================
         outputConvertKelvin = Double.toString(kelvin);
         resultKelvin.setText(outputConvertKelvin);
-         //============readonly===========
+        //============readonly===========
         resultCelcius.setEditable(false);
         resultFahreinheit.setEditable(false);
         resultKelvin.setEditable(false);
         resultReamur.setEditable(false);
-      
+
     }
 
     public void hitungFahreinheit() {
         fahreinheit convertFahreinheit = new fahreinheit();
         convertFahreinheit.setInput(Integer.parseInt(inputNumber));
         String getValueText = txtInput.getText();
-        
+
         celcius = convertFahreinheit.toCelcius();
         fahreinheit = Double.parseDouble(getValueText);
         reamur = convertFahreinheit.toReamur();
-        kelvin =  convertFahreinheit.toKelvin();
-        
+        kelvin = convertFahreinheit.toKelvin();
+
         //=========== result celcius =================
         outputConvertCelcius = Double.toString(celcius);
         resultCelcius.setText(outputConvertCelcius);
-         //=========== result fahreinheit =================
+        //=========== result fahreinheit =================
         outputConvertFahreinheit = Double.toString(fahreinheit);
         resultFahreinheit.setText(outputConvertFahreinheit);
         //=========== result reamur =================
@@ -96,26 +99,27 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
         //=========== result kelvin =================
         outputConvertKelvin = Double.toString(kelvin);
         resultKelvin.setText(outputConvertKelvin);
-         //============readonly===========
+        //============readonly===========
         resultCelcius.setEditable(false);
         resultFahreinheit.setEditable(false);
         resultKelvin.setEditable(false);
         resultReamur.setEditable(false);
     }
- public void hitungReamur() {
+
+    public void hitungReamur() {
         reamur convertReamur = new reamur();
         convertReamur.setInput(Integer.parseInt(inputNumber));
         String getValueText = txtInput.getText();
-        
-         celcius = convertReamur.toCelcius();
+
+        celcius = convertReamur.toCelcius();
         fahreinheit = convertReamur.toFahrenheit();
         reamur = Double.parseDouble(getValueText);
         kelvin = convertReamur.toKelvin();
 
-          //=========== result celcius =================
+        //=========== result celcius =================
         outputConvertCelcius = Double.toString(celcius);
         resultCelcius.setText(outputConvertCelcius);
-         //=========== result fahreinheit =================
+        //=========== result fahreinheit =================
         outputConvertFahreinheit = Double.toString(fahreinheit);
         resultFahreinheit.setText(outputConvertFahreinheit);
         //=========== result reamur =================
@@ -124,26 +128,27 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
         //=========== result kelvin =================
         outputConvertKelvin = Double.toString(kelvin);
         resultKelvin.setText(outputConvertKelvin);
-         //============readonly===========
+        //============readonly===========
         resultCelcius.setEditable(false);
         resultFahreinheit.setEditable(false);
         resultKelvin.setEditable(false);
         resultReamur.setEditable(false);
     }
-  public void hitungKelvin() {
+
+    public void hitungKelvin() {
         kelvin convertKelvin = new kelvin();
         convertKelvin.setInput(Integer.parseInt(inputNumber));
         String getValueText = txtInput.getText();
-        
-         celcius = convertKelvin.toCelcius();
+
+        celcius = convertKelvin.toCelcius();
         fahreinheit = convertKelvin.toFahrenheit();
         reamur = convertKelvin.toReamur();
-        kelvin = Double.parseDouble(getValueText); 
+        kelvin = Double.parseDouble(getValueText);
 
-          //=========== result celcius =================
+        //=========== result celcius =================
         outputConvertCelcius = Double.toString(celcius);
         resultCelcius.setText(outputConvertCelcius);
-         //=========== result fahreinheit =================
+        //=========== result fahreinheit =================
         outputConvertFahreinheit = Double.toString(fahreinheit);
         resultFahreinheit.setText(outputConvertFahreinheit);
         //=========== result reamur =================
@@ -152,12 +157,29 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
         //=========== result kelvin =================
         outputConvertKelvin = Double.toString(kelvin);
         resultKelvin.setText(outputConvertKelvin);
-         //============readonly===========
+        //============readonly===========
         resultCelcius.setEditable(false);
         resultFahreinheit.setEditable(false);
         resultKelvin.setEditable(false);
         resultReamur.setEditable(false);
     }
+
+    void displayInformasi() {
+        Font normalFont = new Font(Font.MONOSPACED, Font.PLAIN, 24);
+        UIManager.put("OptionPane.font", normalFont);
+        UIManager.put("OptionPane.messageFont", normalFont);
+        UIManager.put("OptionPane.minimumSize", new Dimension(400, 300));
+        UIManager.put("OptionPane.buttonFont", normalFont);
+        UIManager.put("OptionPane.buttonOrientation", SwingConstants.RIGHT);
+
+        JOptionPane.showMessageDialog(this,
+                "Suhu adalah kalkulator untuk menghitung\nkonversi suhu ke suhu yang lain" + "\npilih salah satu suhu diantaranya :" + 
+                        "\nCelcius,\nFahreinheit,\nReamur,\nKelvin \nkemudian,  klik ( = )untuk melihat hasil"
+                + "\n " + "\ncreated by : Rinrin Karmila",
+                "Informasi",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -658,11 +680,11 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
     private void BtnEqualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEqualActionPerformed
         if (btnCelcius.isSelected()) {
             hitungCelcius();
-        }else if(btnFahreinheit.isSelected()){
+        } else if (btnFahreinheit.isSelected()) {
             hitungFahreinheit();
-        }else if(btnReamur.isSelected()){
+        } else if (btnReamur.isSelected()) {
             hitungReamur();
-        }else {
+        } else {
             hitungKelvin();
         }
     }//GEN-LAST:event_BtnEqualActionPerformed
@@ -711,7 +733,7 @@ public class SuhuKalkulator extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_resultFahreinheitActionPerformed
 
     private void btnInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoActionPerformed
-        
+        displayInformasi();
 //        JOptionPane.showMessageDialog(null," Program ini dibuat oleh \n Nama: Rinrin Karmila \n");
     }//GEN-LAST:event_btnInfoActionPerformed
 
